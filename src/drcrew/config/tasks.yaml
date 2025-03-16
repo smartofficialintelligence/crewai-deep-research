@@ -1,0 +1,150 @@
+# manager_delegation_task:
+#   description: >
+#     Coordinate the research process about {topic} by delegating specific questions and subtopics to
+#     perplexity_researcher and chatgpt_researcher based on their strengths. Monitor progress, provide 
+#     guidance, and ensure comprehensive coverage of the research topic without duplication of effort.
+#   expected_output: >
+#     A JSON object containing:
+#     - "delegated_tasks": Array of assignments with researcher, subtopic, and rationale
+#     - "research_plan": Overall strategy for approaching the topic
+#     - "progress_tracking": Status of each delegated task
+#     - "coordination_notes": Instructions for researchers to avoid overlap
+#   agent: manager
+
+manager_report_task:
+  description: >
+    Synthesize all research findings about {topic} from all your agents
+    into a comprehensive, coherent final report. Evaluate the quality of information, resolve
+    conflicts, and present a unified analysis with proper citations and references. 
+    Focus on providing the findings rather than an explanation of how you arrived at them.
+    Quality will be judged not just on insights but on comprehensiveness and thoroughness.
+    Each section of the report should be detailed, well thought out. If the executive summary
+     or a suptopic is under a specificed word count, you must expand it before proceeding. 
+  expected_output: >
+    A Markdown report with:
+    - Executive summary of key findings
+    - Detailed findings organized by subtopics. Each section should be at least 500 words.
+    - Statistical analysis where relevant including conclusions. Focus on providing the output of the analysis rather than the analysis framework.
+    - Section on conflicting or ambiguous findings. This should be at least 500 words.
+    - A final conclusion section. This section should be at least 1000 words.
+    - Section detailing which models contributed which insights
+    - Comprehensive reference list with attribution to researchers
+  agent: manager
+  output_file: final_report.md
+
+perplexity_research_task:
+  description: >
+    Utilize your exceptional web search and citation capabilities to gather and present up-to-date 
+    information about {topic} with proper attribution and source validation. Focus on retrieving 
+    the most current information available online with reliable sourcing, especially from academic 
+    papers and trusted social media sources. Prioritize factual, cited information rather than 
+    speculation.
+  expected_output: >
+    A concise, well-cited report that includes:
+    - Current factual information on the topic
+    - Clear attribution to authoritative sources
+    - Time-sensitive developments and recent data
+    - Proper citations for all information provided
+  agent: perplexity_researcher
+
+chatgpt_research_task:
+  description: >
+    Leverage your advanced reasoning and synthesis capabilities to generate a comprehensive, 
+    well-structured report about {topic}. Draw on your versatile knowledge across many domains to 
+    provide creative problem-solving and nuanced insights with clear explanations. Balance 
+    creativity and accuracy while addressing diverse aspects of the topic.
+  expected_output: >
+    A detailed, well-structured report that includes:
+    - Creative analysis of the topic from multiple perspectives
+    - Nuanced insights organized into logical sections
+    - Practical applications or implications
+    - Clear explanations of complex concepts
+    - List of sources and references used in your analysis
+  agent: chatgpt_researcher
+
+claude_sonnet_research_task:
+  description: >
+    Apply your exceptional reasoning and nuance understanding to produce a highly accurate, 
+    carefully analyzed report about {topic}. Focus on deep critical thinking, nuanced 
+    understanding of complex aspects, and careful reasoning through multi-step problems. 
+    Maintain logical consistency, acknowledge uncertainty appropriately, and explain complex 
+    concepts with exceptional clarity while minimizing hallucinations.
+  expected_output: >
+    A thoughtful, nuanced report that includes:
+    - Carefully reasoned arguments with transparent logic
+    - Acknowledgment of uncertainties and limitations
+    - Ethical considerations where relevant
+    - Multi-step reasoning clearly explained
+    - Complex concepts broken down with exceptional clarity
+    - Graphs and charts where relevant. Render them in ASCII. Include the code above the graph. 
+    - Factual information with appropriate citations
+  agent: claude_sonnet_researcher
+
+xai_research_task:
+  description: >
+    Explore {topic} from multiple angles, including unconventional perspectives that challenge 
+    traditional thinking. Leverage your analytical capabilities and Real-Time Training to deliver 
+    a comprehensive analysis that uncovers hidden insights and goes beyond conventional approaches. 
+    Your Real-Time Training allows you to incorporate the very latest information and developments 
+    into your analysis. Apply your somewhat irreverent approach to explore angles that more 
+    conventional analyses might overlook.
+  expected_output: >
+    An innovative analysis report that includes:
+    - Unconventional perspectives on the topic
+    - Up-to-date insights leveraging your Real-Time Training capability
+    - Challenges to established viewpoints
+    - Hidden insights or connections not immediately apparent
+    - Creative problem-solving approaches
+    - Interdisciplinary thinking that crosses traditional boundaries
+    - Rigorous analytical foundation despite unconventional angles
+  agent: xai_researcher
+
+deepseek_research_task:
+  description: >
+    Provide a thorough, accurate analysis of {topic} with emphasis on technical aspects, 
+    code, and complex systems understanding. Utilize your exceptional capabilities in technical 
+    domains, particularly in computer science, coding, mathematics, and related fields. Focus 
+    on breaking down complex technical concepts into clear, accessible explanations while 
+    maintaining accuracy.
+  expected_output: >
+    A technical analysis report that includes:
+    - Precise technical explanations of relevant concepts
+    - Code examples or algorithm analysis where applicable
+    - Breakdown of complex systems into understandable components
+    - Strong logical reasoning throughout the analysis
+    - Technical problem-solving approaches
+    - Clear explanations accessible to both technical and non-technical audiences
+  agent: deepseek_researcher
+
+# gemini_research_task:
+#   description: >
+#     Analyze {topic} using your multimodal understanding strengths to provide comprehensive insights 
+#     across diverse information formats. Focus on integrating both visual and textual information 
+#     analysis, including images, charts, and other visual data alongside text where applicable. 
+#     Apply your strengths in mathematical reasoning and scientific analysis.
+#   expected_output: >
+#     A multimodal analysis report that includes:
+#     - Insights derived from both visual and textual data
+#     - Analysis of relevant charts, diagrams, or visual information
+#     - Integration of multiple information modalities
+#     - Scientific or mathematical reasoning where relevant
+#     - Visual supplements to textual explanations where helpful
+#   agent: gemini_researcher
+
+
+# stanford_alpaca_research_task:
+#   description: >
+#     Conduct research on {topic} with methodical rigor, providing analyses grounded in academic 
+#     principles and methodologies. Apply your academic foundations to create a systematic 
+#     exploration of the topic with careful consideration of evidence and methodological 
+#     soundness. Focus on transparent analysis processes aligned with scholarly practices.
+#   expected_output: >
+#     A methodical academic analysis that includes:
+#     - Systematic exploration of the topic following academic traditions
+#     - Clear methodology and analytical framework
+#     - Careful evaluation of evidence and sources
+#     - Transparent reasoning processes
+#     - Scholarly approach to uncertainty and limitations
+#     - Appropriate academic citations and references
+#   agent: stanford_alpaca_researcher
+
