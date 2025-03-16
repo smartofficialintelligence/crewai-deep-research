@@ -1,3 +1,43 @@
+# Environment variables
 .env
-__pycache__/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# macOS system files
 .DS_Store
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# VS Code settings (optional - you might want to share these with your team)
+.vscode/
+
+# Testing/coverage reports
+.coverage
+htmlcov/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# UV package manager
+uv.lock
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Logs
+logs/
+*.log
+
+# Local development settings
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
